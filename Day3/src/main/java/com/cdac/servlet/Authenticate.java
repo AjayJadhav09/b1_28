@@ -29,8 +29,8 @@ public class Authenticate extends HttpServlet {
 
 		try {
 			if (new UserDaoImpl().authenticate(new User(name, password)))
-				request.getRequestDispatcher("categories").forward(request, response);
-//				request.getRequestDispatcher("Products").forward(request, response);
+//				request.getRequestDispatcher("categories").forward(request, response);
+				request.getRequestDispatcher("Products").forward(request, response);
 				//response.sendRedirect("categories");
 			else
 				out.println("<h1 style='color:red; text-align:center;'>Incorrect username or password</h1>");
