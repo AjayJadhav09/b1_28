@@ -6,9 +6,16 @@ public class User {
 		String password;
 		String name;
 		String email;
+		String city;
 		
 		public User(){
 			
+		}
+
+		@Override
+		public String toString() {
+			return " [userName=" + userName + ", password=" + password + ", name=" + name + ", email=" + email
+					+ "]";
 		}
 
 		public String getUserName() {
@@ -43,12 +50,21 @@ public class User {
 			this.email = email;
 		}
 
-		public User(String userName, String password, String name, String email) {
+		public User(String userName, String password, String name, String email, String city) {
 			super();
 			this.userName = userName;
 			this.password = password;
 			this.name = name;
 			this.email = email;
+			this.city = city;
+		}
+
+		public String getCity() {
+			return city;
+		}
+
+		public void setCity(String city) {
+			this.city = city;
 		}
 	
 

@@ -6,9 +6,12 @@
     
     <hibernate-mapping>
     	<class name="com.ajay.first_hibernate.entity.User" table="User">
-    		<id column="username" name="userName" type="java.lang.String"></id>
+    		<id name="email" type="string">
+        		<column name="email" sql-type="VARCHAR" length="25" not-null="true"/>
+   		 	</id>
+    		<property column="username" name="userName" type="java.lang.String"/>
     		<property column="password" name="password" type="java.lang.String"/>
     		<property column="name" name="name" type="java.lang.String"/>
-    		<property column="email" name="email" type="java.lang.String"/>
+    		<property column="city" name="city" type="java.lang.String"/>
     	</class>
     </hibernate-mapping>

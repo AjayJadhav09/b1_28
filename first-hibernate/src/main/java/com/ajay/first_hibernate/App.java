@@ -23,25 +23,36 @@ public class App {
 			hibernateSession = hiberFactory.openSession();
 			
 			try(Scanner sc = new Scanner(System.in)){
-				System.out.println("Enter the username");
-				String userName = sc.next();
-				
-				System.out.println("Enter the password");
-				String password = sc.next();
-				
-				System.out.println("Enter the name");
-				String name = sc.next();
-				
-				System.out.println("Enter the email");
-				String email = sc.next();
-				
-				User objUser = new User(userName,password,name,email);
+//				System.out.println("Enter the username");
+//				String userName = sc.next();
+//				
+//				System.out.println("Enter the password");
+//				String password = sc.next();
+//				
+//				System.out.println("Enter the name");
+//				String name = sc.next();
+//				
+//				System.out.println("Enter the email");
+//				String email = sc.next();
+//				
+//				User objUser = new User(userName,password,name,email);
 				
 				hibernateSession.beginTransaction();
-				hibernateSession.persist(objUser);
+//				hibernateSession.persist(objUser);
+				User user1 = (User) hibernateSession.get(User.class,"user101@cdac.com");
+			//	 User uss = hibernateSession.load(User.class,"ajjjjjj");
+//				 if(user1 != null) {
+//					 hibernateSession.remove(user1);
+//					 System.out.println("Deleted");
+//				 }else {
+//					 System.out.println("not found");
+//				 }
+				user1.setName("Ajay");
+				hibernateSession.merge(user1);
+//				
 				hibernateSession.getTransaction().commit();
 				
-				System.out.println("User Registered");
+				//System.out.println("User Registered");
 			}catch(Exception e){
 				e.printStackTrace();
 			}
