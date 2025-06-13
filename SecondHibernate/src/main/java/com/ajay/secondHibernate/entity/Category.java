@@ -1,9 +1,37 @@
 package com.ajay.secondHibernate.entity;
 
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedNativeQueries;
+import jakarta.persistence.NamedNativeQuery;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name="category")
+@NamedQueries({
+	@NamedQuery(name="getAllCategories",query ="Select OBJECT(oCat) from Category oCat"),
+	@NamedQuery(name="getCategoryById", query ="Select OBJECT(oCat) from Category oCat where oCat.id=:cid")
+})
+@NamedNativeQueries({
+	@NamedNativeQuery(name="sqlAllCategories" , query = "Select * from category")
+})
 public class Category {
+	@Id
+	@Column(name="id")
+	@GeneratedValue(generator="increment")
 	int id;
+	
+	@Column(name="name")
 	String name;
+	
+	@Column(name="description")
 	String description;
+	
+	@Column(name="imageurl")
 	String imageUrl;
 	
 	public int getId() {

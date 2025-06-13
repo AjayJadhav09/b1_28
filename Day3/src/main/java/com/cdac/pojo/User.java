@@ -1,5 +1,6 @@
 package com.cdac.pojo;
 
+
 public class User {
 	private String name;
 	private String password;

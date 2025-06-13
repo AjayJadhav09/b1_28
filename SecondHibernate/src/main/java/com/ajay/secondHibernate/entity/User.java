@@ -1,13 +1,25 @@
 package com.ajay.secondHibernate.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
 
 @Entity
-
+@Table(name="user")
 public class User {
+	@Id
+	@Column(name="id")
 	int id;
+	
+	@Column(name="name")
 	String name;
+	
+	@Column(name="password")
 	String password;
+	
+	@Column(name="email")
 	String email;
 	
 	
